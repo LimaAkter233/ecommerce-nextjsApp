@@ -1,6 +1,15 @@
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
-
+// import { data } from 'autoprefixer';
+import Layout from '../components/Layout';
+import ProductItems from '../components/ProductItems';
+import data from '../utills/data';
 export default function Home() {
-  return <h1 className="text-3xl font-bold uppercase">Hello world!</h1>;
+  return (
+    <Layout title="Home Page">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
+        {data.products.map((product) => (
+          <ProductItems product={product} key={product.slug}></ProductItems>
+        ))}
+      </div>
+    </Layout>
+  );
 }
